@@ -3,7 +3,7 @@
     <div class="custom-container">
       <div class="header-panel contact-panel">
         <div class="d-flex align-items-center gap-2">
-          <nuxt-link to="/">
+          <nuxt-link to="/contacts">
             <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
           </nuxt-link>
           <nuxt-link to="personal-info.html" class="profile-head">

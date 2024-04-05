@@ -6,8 +6,8 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _b671e568 = () => interopDefault(import('../pages/contacts.vue' /* webpackChunkName: "pages/contacts" */))
 const _6c5edd40 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _1e4f3e5b = () => interopDefault(import('../pages/private-chat.vue' /* webpackChunkName: "pages/private-chat" */))
 const _ba918bae = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _ae251e20 = () => interopDefault(import('../pages/chat/private/_id.vue' /* webpackChunkName: "pages/chat/private/_id" */))
 
 const emptyFn = () => {}
 
@@ -29,13 +29,13 @@ export const routerOptions = {
     component: _6c5edd40,
     name: "login"
   }, {
-    path: "/private-chat",
-    component: _1e4f3e5b,
-    name: "private-chat"
-  }, {
     path: "/",
     component: _ba918bae,
     name: "index"
+  }, {
+    path: "/chat/private/:id?",
+    component: _ae251e20,
+    name: "chat-private-id"
   }],
 
   fallback: false
