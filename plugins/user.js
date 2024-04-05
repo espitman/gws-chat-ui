@@ -14,7 +14,7 @@ export default function ({ app }, inject) {
           payload: { user },
         },
       } = await app.$api.post(`/user-service/login`, { name, password })
-      setToken(user.id)
+      setToken(user.token)
       await app.router.push('/contacts')
     } catch (err) {
       console.log(err)
