@@ -1,0 +1,38 @@
+{
+  "BottomNavbar": {
+    "description": "Auto imported from components/Bottom-Navbar.vue"
+  },
+  "ChatList": {
+    "description": "Auto imported from components/Chat-List.vue"
+  },
+  "ChatMessages": {
+    "description": "Auto imported from components/Chat-Messages.vue"
+  },
+  "ChateMessageInput": {
+    "description": "Auto imported from components/Chate-Message-Input.vue"
+  },
+  "ChateReply": {
+    "description": "Auto imported from components/Chate-Reply.vue"
+  },
+  "Contacts": {
+    "description": "Auto imported from components/Contacts.vue"
+  },
+  "HeaderPrivateChat": {
+    "description": "Auto imported from components/Header-Private-Chat.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "ModalBlock": {
+    "description": "Auto imported from components/Modal-Block.vue"
+  },
+  "NewPart": {
+    "description": "Auto imported from components/New-Part.vue"
+  },
+  "SideBar": {
+    "description": "Auto imported from components/SideBar.vue"
+  },
+  "Stories": {
+    "description": "Auto imported from components/Stories.vue"
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "contacts",
+    "path": "/contacts",
+    "component": "/Users/espitman/Documents/vue/chatzy/pages/contacts.vue",
+    "chunkName": "pages/contacts",
+    "_name": "_b671e568"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/espitman/Documents/vue/chatzy/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_6c5edd40"
+  },
+  {
+    "name": "private-chat",
+    "path": "/private-chat",
+    "component": "/Users/espitman/Documents/vue/chatzy/pages/private-chat.vue",
+    "chunkName": "pages/private-chat",
+    "_name": "_1e4f3e5b"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/espitman/Documents/vue/chatzy/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_ba918bae"
+  }
+]
