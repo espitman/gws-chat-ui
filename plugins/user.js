@@ -7,6 +7,10 @@ export default function ({ app }, inject) {
     return localStorage.setItem('token', token)
   }
 
+  const deleteToken = (token) => {
+    return localStorage.removeItem('token')
+  }
+
   const login = async (name, password) => {
     try {
       const {
@@ -41,11 +45,18 @@ export default function ({ app }, inject) {
     }
   }
 
+  const logout = () => {
+    deleteToken()
+    app.$api.setHeader('Authorization', '')
+    app.router.push('/login')
+  }
+
   const user = {
     login,
     isAuthenticated,
     checkAuth,
     checkNotAuth,
+    logout,
   }
   inject('user', user)
 }

@@ -1,10 +1,19 @@
 <template>
   <!-- sidebar starts -->
-  <div class="offcanvas sidebar-offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft">
+  <div
+    class="offcanvas sidebar-offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvasLeft"
+  >
     <div class="offcanvas-header sidebar-header">
       <div class="sidebar-logo">
-        <img class="img-fluid logo" src="/images/logo/mini-logo.png" alt="logo">
-        <span class="fw-bold dark-text">Chatzy</span> </div>
+        <img
+          class="img-fluid logo"
+          src="/images/logo/mini-logo.png"
+          alt="logo"
+        />
+        <span class="fw-bold dark-text">Chatzy</span>
+      </div>
     </div>
 
     <div class="offcanvas-body">
@@ -23,7 +32,11 @@
         </li>
         <li>
           <a href="new-broadcast-contact.html" class="pages">
-            <img class=" ing-fluid sidebar-icon icon" src="/images/svg/megaphone.svg" alt="megaphone">
+            <img
+              class="ing-fluid sidebar-icon icon"
+              src="/images/svg/megaphone.svg"
+              alt="megaphone"
+            />
             <h3>New Broadcast</h3>
           </a>
         </li>
@@ -80,7 +93,7 @@
             <h3>RTL</h3>
           </div>
           <div class="switch-btn">
-            <input id="dir-switch" type="checkbox">
+            <input id="dir-switch" type="checkbox" />
           </div>
         </li>
 
@@ -90,7 +103,7 @@
             <h3>Dark</h3>
           </div>
           <div class="switch-btn">
-            <input id="dark-switch" type="checkbox">
+            <input id="dark-switch" type="checkbox" />
           </div>
         </li>
       </ul>
@@ -104,7 +117,7 @@
             </a>
           </li>
           <li>
-            <a href="login.html" class="pages">
+            <a @click="logout" class="pages">
               <i class="iconsax sidebar-icon" data-icon="logout-2"> </i>
               <h3>Logout</h3>
             </a>
@@ -115,3 +128,13 @@
   </div>
   <!-- sidebar end -->
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$user.logout()
+    }
+  }
+}
+</script>

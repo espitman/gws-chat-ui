@@ -15,6 +15,7 @@ export default {
   name: 'IndexPage',
   mounted() {
     init_iconsax()
+    this.$user.checkAuth()
   }
 }
 </script>
