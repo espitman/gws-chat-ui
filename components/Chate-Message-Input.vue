@@ -6,6 +6,7 @@
         type="text"
         class="message-input"
         placeholder="Type here..."
+        id="my-message"
       />
       <img class="img-fluid smile" src="/images/smile.svg" alt="" />
       <button type="submit" class="message-send-btn">

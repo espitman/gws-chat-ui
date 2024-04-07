@@ -13,22 +13,27 @@
 export default {
   name: 'PrivateChatPage',
   asyncData({ params }) {
+    console.log({ params })
     const { id } = params
     return { id }
   },
   data() {
     return {
-      id: undefined,
       room: {},
       socket: undefined,
       message: [],
+      docH: 0,
     }
   },
   async mounted() {
     init_iconsax()
     this.$user.checkAuth()
+    this.docH = document.body.scrollHeight
   },
   async fetch() {
+    if (!this.id) {
+      return this.$router.back()
+    }
     this.loading = true
     const {
       data: { payload },
@@ -45,6 +50,7 @@ export default {
         console.log({ msg: event.data, type: 'new' })
         this.message.push({ msg: event.data, type: 'new' })
         console.log(this.messages)
+        this.scroller()
       }
     } catch (e) {
       console.log('@@@', e)
@@ -58,6 +64,18 @@ export default {
       this.message.push({ msg, type: 'personal' })
       console.log(this.messages)
       this.socket.send(msg)
+
+      const inputElement = document.getElementById('my-message')
+      inputElement.focus()
+      this.scroller()
+    },
+    scroller() {
+      setTimeout(() => {
+        if (document.body.scrollHeight > this.docH) {
+          this.docH = -1
+          window.scrollTo(0, document.body.scrollHeight)
+        }
+      })
     },
   },
 }
