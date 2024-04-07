@@ -18,7 +18,7 @@
             id="message"
           >
             <div class="message-box">
-              <img class="img-fluid person-img" src="/images/p9.png" alt="p9" />
+              <img class="img-fluid person-img" :src="room.userAvatar" alt="p9" />
 
               <div class="message-box-details">
                 <h5>
@@ -75,6 +75,7 @@
 <script>
 export default {
   props: {
+    room: { type: Object, required: true },
     messages: { type: Array, required: true },
   },
   data() {
