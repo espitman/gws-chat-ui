@@ -54,4 +54,8 @@ export default {
   server: {
     host: '0.0.0.0',
   },
+  pageTransition: {
+    name: 'my-page',
+    mode: 'out-in',
+  },
 }

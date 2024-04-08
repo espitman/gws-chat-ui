@@ -1862,8 +1862,8 @@ li {
   width: 100%;
 }
 
-/*===================== 
-    Title CSS start 
+/*=====================
+    Title CSS start
 ==========================*/
 .title {
   display: -webkit-box;
@@ -6928,3 +6928,17 @@ body.dark .element-modal .modal-dialog .modal-content .modal-header .btn-close {
           filter: brightness(0) invert(1);
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+
+.my-page-enter-active,
+.my-page-leave-active {
+  transition: opacity 0.2s;
+}
+.my-page-enter,
+.my-page-leave-to {
+  opacity: 0;
+}
+
