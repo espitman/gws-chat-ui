@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="!loading">
     <HeaderPrivateChat :room="room" />
-    <ChatMessages :room="room" :messages="message" />
+    <ChatMessages :room="room" />
     <ChateReply />
     <ChateMessageInput :send-message="sendMessage" />
 
@@ -13,15 +13,14 @@
 export default {
   name: 'PrivateChatPage',
   asyncData({ params }) {
-    console.log({ params })
     const { id } = params
     return { id }
   },
   data() {
     return {
-      room: {},
+      loading: true,
+      room: { messages: [] },
       socket: undefined,
-      message: [],
       docH: 0,
     }
   },
@@ -31,25 +30,35 @@ export default {
     this.docH = document.body.scrollHeight
   },
   async fetch() {
+    this.loading = true
     if (!this.id) {
       return this.$router.back()
     }
     this.loading = true
+
     const {
       data: { payload },
     } = await this.$api.get(`/message-service/room/${this.id}`)
+    payload.messages = payload.messages || []
     this.room = payload
-    console.log(this.room)
-
+    this.scroller()
     try {
-      this.socket = new WebSocket('ws://192.168.1.221:8085/chat/' + this.id)
+      let url = 'ws://192.168.1.221:8085/chat/' + this.id
+      // let url = 'ws://localhost:8085/chat/' + this.id
+      url += '?jwt=' + this.$user.getToken()
+      this.socket = new WebSocket(url)
       this.socket.onerror = (event) => {
         console.log(event)
       }
       this.socket.onmessage = (event) => {
-        console.log({ msg: event.data, type: 'new' })
-        this.message.push({ msg: event.data, type: 'new' })
-        console.log(this.messages)
+        const userAvatar = this.room.audience.avatar
+
+        this.room.messages.push({
+          body: event.data,
+          userAvatar,
+          time: '2024-04-08 20:48:33',
+          type: 1,
+        })
         this.scroller()
       }
     } catch (e) {
@@ -61,10 +70,13 @@ export default {
   },
   methods: {
     sendMessage(msg) {
-      this.message.push({ msg, type: 'personal' })
-      console.log(this.messages)
+      this.room.messages.push({
+        body: msg,
+        time: '2024-04-08 20:48:33',
+        type: 2,
+      })
+      console.log(this.room.messages)
       this.socket.send(msg)
-
       const inputElement = document.getElementById('my-message')
       inputElement.focus()
       this.scroller()

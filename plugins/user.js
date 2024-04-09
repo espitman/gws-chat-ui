@@ -52,6 +52,7 @@ export default function ({ app }, inject) {
   }
 
   const user = {
+    getToken,
     login,
     isAuthenticated,
     checkAuth,

@@ -8,10 +8,10 @@
           </nuxt-link>
           <nuxt-link to="personal-info.html" class="profile-head">
             <div class="profile-img">
-              <img class="img-fluid img" :src="room.userAvatar" alt="" />
+              <img class="img-fluid img" :src="room.audience.avatar" alt="" />
             </div>
             <div>
-              <h4 class="fw-semibold">{{room.userName}}</h4>
+              <h4 class="fw-semibold">{{ room.audience.name }}</h4>
               <h6 class="fw-normal text-white-75">Online</h6>
             </div>
           </nuxt-link>
@@ -98,6 +98,9 @@
 export default {
   props: {
     room: { type: Object, required: true },
+  },
+  mounted() {
+    init_iconsax()
   },
   data() {
     return {}
