@@ -7,6 +7,7 @@
         class="message-input"
         placeholder="Type here..."
         id="my-message"
+        @focus="this.inScroller"
       />
       <img class="img-fluid smile" src="/images/smile.svg" alt="" />
       <button type="submit" class="message-send-btn">
@@ -20,6 +21,7 @@
 export default {
   props: {
     sendMessage: { type: Function, required: true },
+    scroller: { type: Function, required: true },
   },
   data() {
     return {
@@ -33,6 +35,9 @@ export default {
       event.preventDefault()
       this.sendMessage(this.formData.message)
       this.formData.message = ''
+    },
+    inScroller() {
+      setTimeout(this.scroller, 100)
     },
   },
 }

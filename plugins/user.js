@@ -19,7 +19,7 @@ export default function ({ app }, inject) {
         },
       } = await app.$api.post(`/user-service/login`, { name, password })
       setToken(user.token)
-      await app.router.push('/contacts')
+      await app.router.push('/')
     } catch (err) {
       console.log(err)
       alert(err.response.data.message)
@@ -41,7 +41,7 @@ export default function ({ app }, inject) {
 
   const checkNotAuth = () => {
     if (isAuthenticated()) {
-      app.router.push('/contacts')
+      app.router.push('/')
     }
   }
 

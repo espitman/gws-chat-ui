@@ -3,9 +3,9 @@
     <div class="custom-container">
       <div class="header-panel contact-panel">
         <div class="d-flex align-items-center gap-2">
-          <nuxt-link to="/contacts">
+          <a @click="goBack">
             <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
-          </nuxt-link>
+          </a>
           <nuxt-link to="personal-info.html" class="profile-head">
             <div class="profile-img">
               <img class="img-fluid img" :src="room.audience.avatar" alt="" />
@@ -105,7 +105,11 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    goBack() {
+      this.$router.back()
+    }
+  },
 }
 </script>
 

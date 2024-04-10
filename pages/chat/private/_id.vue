@@ -3,7 +3,7 @@
     <HeaderPrivateChat :room="room" />
     <ChatMessages :room="room" />
     <ChateReply />
-    <ChateMessageInput :send-message="sendMessage" />
+    <ChateMessageInput :send-message="sendMessage" :scroller="scroller" />
 
     <ModalBlock />
   </div>
