@@ -7,6 +7,14 @@ export default function ({ app }, inject) {
     return localStorage.setItem('token', token)
   }
 
+  const getUserID = () => {
+    return localStorage.getItem('userID')
+  }
+
+  const setUserID = (userID) => {
+    return localStorage.setItem('userID', userID)
+  }
+
   const deleteToken = (token) => {
     return localStorage.removeItem('token')
   }
@@ -19,10 +27,11 @@ export default function ({ app }, inject) {
         },
       } = await app.$api.post(`/user-service/login`, { name, password })
       setToken(user.token)
+      setUserID(user.id)
+      app.$event.init()
       await app.router.push('/')
     } catch (err) {
       console.log(err)
-      alert(err.response.data.message)
     }
   }
 
@@ -53,6 +62,7 @@ export default function ({ app }, inject) {
 
   const user = {
     getToken,
+    getUserID,
     login,
     isAuthenticated,
     checkAuth,

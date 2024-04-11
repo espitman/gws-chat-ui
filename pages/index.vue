@@ -21,6 +21,7 @@ export default {
     return {
       loading: true,
       chats: [],
+      evtSource: undefined,
     }
   },
   async fetch() {

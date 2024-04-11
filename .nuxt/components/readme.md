@@ -16,5 +16,6 @@ You can directly use them in pages and other components without the need to impo
 - `<Header>` | `<header>` (components/Header.vue)
 - `<ModalBlock>` | `<modal-block>` (components/Modal-Block.vue)
 - `<NewPart>` | `<new-part>` (components/New-Part.vue)
+- `<SSE>` | `<s-s-e>` (components/SSE.vue)
 - `<SideBar>` | `<side-bar>` (components/SideBar.vue)
 - `<Stories>` | `<stories>` (components/Stories.vue)

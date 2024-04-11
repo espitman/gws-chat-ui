@@ -75,7 +75,7 @@ export default {
         time: '2024-04-08 20:48:33',
         type: 2,
       })
-      console.log(this.room.messages)
+      // console.log(this.room.messages)
       this.socket.send(msg)
       const inputElement = document.getElementById('my-message')
       inputElement.focus()

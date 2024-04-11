@@ -8,6 +8,7 @@ export { default as HeaderPrivateChat } from '../../components/Header-Private-Ch
 export { default as Header } from '../../components/Header.vue'
 export { default as ModalBlock } from '../../components/Modal-Block.vue'
 export { default as NewPart } from '../../components/New-Part.vue'
+export { default as SSE } from '../../components/SSE.vue'
 export { default as SideBar } from '../../components/SideBar.vue'
 export { default as Stories } from '../../components/Stories.vue'
 

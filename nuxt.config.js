@@ -1,3 +1,6 @@
+import path from 'path'
+import fs from 'fs'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -18,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/api', '~/plugins/user.js'],
+  plugins: ['~/plugins/api', '~/plugins/user.js', '~/plugins/event.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,12 +38,17 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
+    '@nuxtjs/toast',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en',
+    },
+    workbox: {
+      enabled: true,
+      importScripts: ['custom-sw.js'],
     },
   },
 
@@ -57,5 +65,18 @@ export default {
   pageTransition: {
     name: 'my-page',
     mode: 'out-in',
+  },
+  toast: {
+    position: 'top-center',
+    register: [
+      // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error',
+        },
+      },
+    ],
   },
 }

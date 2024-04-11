@@ -29,6 +29,9 @@
   "NewPart": {
     "description": "Auto imported from components/New-Part.vue"
   },
+  "SSE": {
+    "description": "Auto imported from components/SSE.vue"
+  },
   "SideBar": {
     "description": "Auto imported from components/SideBar.vue"
   },
