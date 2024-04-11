@@ -7,7 +7,7 @@
 export default {
   mounted() {
     if (this.$user.isAuthenticated()) {
-      // this.$event.init()
+      this.$event.init()
     }
 
     if ('Notification' in window && Notification.permission !== 'granted') {

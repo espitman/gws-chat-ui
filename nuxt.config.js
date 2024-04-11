@@ -47,7 +47,7 @@ export default {
       lang: 'en',
     },
     workbox: {
-      enabled: true,
+      enabled: false,
       importScripts: ['custom-sw.js'],
     },
   },
