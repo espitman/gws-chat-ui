@@ -10,12 +10,13 @@ export default function ({ app, $config }, inject) {
   }
 
   const showNotification = (event) => {
-    // app.$toast.success(event.data)
-    // setTimeout(app.$toast.clear, 5000)
-    const notification = new Notification('Hello!', {
-      body: event.data,
-      icon: 'path/to/notification-icon.png', // Optional icon path
-    })
+    app.$toast.success(event.data)
+    setTimeout(app.$toast.clear, 5000)
+    console.log(event.data)
+    // const notification = new Notification('Hello!', {
+    //   body: event.data,
+    //   icon: 'path/to/notification-icon.png', // Optional icon path
+    // })
   }
 
   inject('event', event)
