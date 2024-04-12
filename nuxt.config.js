@@ -4,6 +4,11 @@ import fs from 'fs'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  publicRuntimeConfig: {
+    baseUrl: process.env.BASE_URL,
+    sseUrl: process.env.SSE_URL,
+    wsUrl: process.env.WS_URL,
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,7 +36,11 @@ export default {
     'nuxt-vite',
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/dotenv',
   ],
+  runtimeConfig: {
+    name: 'saeed2',
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -47,7 +56,7 @@ export default {
       lang: 'en',
     },
     workbox: {
-      enabled: false,
+      enabled: true,
       importScripts: ['custom-sw.js'],
     },
   },

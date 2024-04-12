@@ -1,7 +1,6 @@
-import conf from './configs'
-
-export default function ({ $axios }, inject) {
+export default function ({ $config, $axios }, inject) {
   const api = $axios.create()
-  api.setBaseURL(conf.api)
+  const baseUrl = $config.baseUrl
+  api.setBaseURL(baseUrl)
   inject('api', api)
 }

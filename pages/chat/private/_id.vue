@@ -43,7 +43,7 @@ export default {
     this.room = payload
     this.scroller()
     try {
-      let url = 'ws://192.168.1.221:8085/chat/' + this.id
+      let url = this.$config.wsUrl + this.id
       // let url = 'ws://localhost:8085/chat/' + this.id
       url += '?jwt=' + this.$user.getToken()
       this.socket = new WebSocket(url)

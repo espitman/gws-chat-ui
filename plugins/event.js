@@ -1,10 +1,8 @@
-export default function ({ app }, inject) {
+export default function ({ app, $config }, inject) {
   const event = {
     init() {
       console.log('SSE...')
-      this.evtSource = new EventSource(
-        'http://192.168.1.221:8085/event/' + app.$user.getUserID(),
-      )
+      this.evtSource = new EventSource($config.sseUrl + app.$user.getUserID())
       this.evtSource.onmessage = (event) => {
         showNotification(event)
       }

@@ -1,4 +1,4 @@
-// const evtSource = new EventSource('http://192.168.1.221:8085/event/' + 7)
+// const evtSource = new EventSource('http://91.206.177.145:8085/event/' + 7)
 // evtSource.onmessage = (event) => {
 //   console.log(event.data)
 //
@@ -14,3 +14,6 @@
 //   // app.$toast.success(event.data)
 //   // setTimeout(app.$toast.clear, 5000)
 // }
+
+
+importScripts("https://js.pusher.com/beams/service-worker.js");
