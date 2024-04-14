@@ -199,7 +199,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"baseUrl":"http://localhost:8080/api/v1","sseUrl":"http://localhost:8085/event/","wsUrl":"ws://localhost:8085/chat/"}
+      env: {"baseUrl":"http://192.168.1.221:8080/api/v1","sseUrl":"http://192.168.1.221:8085/event/","wsUrl":"ws://192.168.1.221:8085/chat/"}
     }
     // Only set once
 

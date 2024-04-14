@@ -4,7 +4,6 @@
     <ChatMessages :room="room" />
     <ChateReply />
     <ChateMessageInput :send-message="sendMessage" :scroller="scroller" />
-
     <ModalBlock />
   </div>
 </template>
@@ -28,6 +27,8 @@ export default {
     init_iconsax()
     this.$user.checkAuth()
     this.docH = document.body.scrollHeight
+    this.$nuxt.$on('message-sent', this.onMessageSent)
+    this.$nuxt.$on('message-received', this.onMessageReceived)
   },
   async fetch() {
     this.loading = true
@@ -43,42 +44,26 @@ export default {
     this.room = payload
     this.scroller()
     try {
-      let url = this.$config.wsUrl + this.id
-      // let url = 'ws://localhost:8085/chat/' + this.id
-      url += '?jwt=' + this.$user.getToken()
-      this.socket = new WebSocket(url)
-      this.socket.onerror = (event) => {
-        console.log(event)
-      }
-      this.socket.onmessage = (event) => {
-        const userAvatar = this.room.audience.avatar
-
-        this.room.messages.push({
-          body: event.data,
-          userAvatar,
-          time: '2024-04-08 20:48:33',
-          type: 1,
-        })
-        this.scroller()
-      }
+      this.socket = new this.$socket(this.id, this.room)
     } catch (e) {
       console.log('@@@', e)
       alert('EEE')
     }
-
     this.loading = false
   },
   methods: {
     sendMessage(msg) {
-      this.room.messages.push({
-        body: msg,
-        time: '2024-04-08 20:48:33',
-        type: 2,
-      })
-      // console.log(this.room.messages)
       this.socket.send(msg)
       const inputElement = document.getElementById('my-message')
       inputElement.focus()
+      this.scroller()
+    },
+    onMessageSent(data) {
+      this.room.messages.push(data)
+      this.scroller()
+    },
+    onMessageReceived(data) {
+      this.room.messages.push(data)
       this.scroller()
     },
     scroller() {

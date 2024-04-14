@@ -26,7 +26,12 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/api', '~/plugins/user.js', '~/plugins/event.js'],
+  plugins: [
+    '~/plugins/api',
+    '~/plugins/user.js',
+    '~/plugins/event.js',
+    '~/plugins/socket',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
